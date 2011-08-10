@@ -1,0 +1,58 @@
+#moodthingy-widget { font-family: "Helvetica", "Arial", "sans-serif" }
+#moodthingy-widget { width:100%; line-height:1em; }
+
+#moodthingy-widget #total, #moodthingy-widget #voted { display: none; }
+#moodthingy-widget.voted li { cursor: default; }
+#moodthingy-widget .count { visibility: hidden; /* position: absolute; */ }
+
+#moodthingy-widget #hdr { background-color: #999999; border-radius: 5px 5px 0 0; -moz-border-radius: 5px 5px 0 0; -webkit-border-radius: 5px 5px 0 0; color: #FFFFFF; font-size: 12px; min-height: 26px; }
+#moodthingy-widget #hdr #t { float: right; padding-right: 6px; }
+#moodthingy-widget #hdr #t span { background: url("mt.png") no-repeat scroll 0 0 transparent; display: block; float: left; margin-right: 10px; margin-top: 2px; min-height: 24px; text-indent: -99999px; width: 102px; }
+#moodthingy-widget #hdr #s { /* padding-left: 6px; padding-top: 6px; */ display:block; margin-left:6px; padding-top:6px; }
+#moodthingy-widget #bd { position:relative; clear:both; margin-top:0; border:1px solid #ccc; background-color:#EFEFEF; border-radius: 0 0 5px 5px; }
+#moodthingy-widget #bd #loading { top:1px; background:url(progressbar.gif) center center no-repeat #fff; border: 0px solid #000000; height: 98px; opacity: 0.9; position: absolute; text-align: center; width: 100%; z-index: 1; }
+
+#moodthingy-widget ul { width:100%; padding:0;margin: 0 auto; text-align: center; }
+#moodthingy-widget ul li { width:15.5%; background-image: none; cursor: pointer; display: inline-block; padding: 0; text-align: left; zoom: 1; *display: inline; }
+
+#moodthingy-widget ul li .cell { margin: 5px 2px; height:75px; vertical-align:middle; -moz-box-orient: vertical; text-align:center; background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #DDDDDD; border-radius: 5px 5px 5px 5px; position:relative; }
+
+#moodthingy-widget ul li .cell div { height: 100%; width:100%; /* line-height: 1.25em; */ }
+#moodthingy-widget ul li .cell span { display:block; }
+#moodthingy-widget ul li .cell span.m { font-size: 12px; line-height: 14px; padding-top: 11px; text-transform: uppercase; }
+#moodthingy-widget ul li .cell span.p { font-size:24px; line-height:28px; }
+#moodthingy-widget ul li .cell span.count { position: absolute; visibility: hidden; }
+.clearfix { clear:both; }
+
+/* #moodthingy-widget ul li .cell .vft { font-size:11px; position:absolute; bottom:5px; left:50%; margin-left:-25px; width:50px; line-height:1em; zoom:1; } */
+#moodthingy-widget ul li .cell .vftthx, #moodthingy-widget ul li .cell .vft.vftchoose { font-size:11px; float:left; width:100%; }
+
+/* #moodthingy-widget ul li .cell .vft.vftchoose {  margin-left:-45px !important; width:90px !important; display:block } */
+
+#sparkbardiv { width:96%; margin:5px auto 0; }
+.sparkbar { height:5px; border:1px solid #ccc; border-radius:5px; }
+.sparkbar div { float:left; height:5px; }
+
+.sparkbar div { border-left: 1px solid #FFFFFF; float: left; height: 5px; margin-left: -1px; }
+
+#mdr-e1 .percent { color: #7B11C6; } /* intrigued */
+.spark1 { background-color: #7B11C6; }
+
+#mdr-e2 .percent { color: #17C611; } /* laughing */
+.spark2 { background-color: #17C611; } 
+
+#mdr-e3 .percent { color: #115AC6; } /* sad */
+.spark3 { background-color: #115AC6; } 
+
+#mdr-e4 .percent { color: #E01D1D; } /* furious */
+.spark4 { background-color: #E01D1D; } 
+
+#mdr-e5 .percent { color: #666; } /* bored */
+.spark5 { background-color: #666; } 
+
+#mdr-e6 .percent { color: #DB871A; } /* thrilled */
+.spark6 { background-color: #DB871A; } 
+
+.percent { font-size:32px; margin-top:0px; line-height:1em; }
+/* .percent { font-size:32px; position: absolute; top:48%; width:100%; } */
+.p-0 { color: #CCCCCC; }

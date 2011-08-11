@@ -3,7 +3,7 @@
 Plugin Name: MoodThingy
 Plugin URI: N/A
 Description: Adds a list of emotions to ask how a person is feeling to be used as an instant emotional feedback loop.
-Version: 1.0
+Version: 0.5 BETA
 Author: Ernie Hsiung
 E-Mail: ernie@moodthingy.com
 Author URI: http://www.moodthingy.com
@@ -11,7 +11,6 @@ Author URI: http://www.moodthingy.com
 
 // Don't forget to:
 // LOCK the comments
-// Change the $moodthingy_server variable to the live site
 
 
 global $lydl_db_version;
@@ -19,11 +18,9 @@ global $moods;
 global $moodthingy_server;
 
 $lydl_db_version = "0.6";
-$moodthingy_server = "http://dev.moodthingy.com";
-// $moodthingy_server = "http://moodthingy.local:8888";
+$moodthingy_server = "http://www.moodthingy.com";
 $moods = array(1 => "Fascinated", 2 => "Amused", 3 => "Sad", 4 => "Angry", 5 => "Bored", 6 => "Excited");
 $cookie_duration = 14;
-
 
 require_once( 'moodthingy-admin.php' );
 
@@ -186,12 +183,7 @@ function lydl_store_results($vote, $postid) {
 		}	
 		$cookie_last = $cookie_duration * 24 * 60 * 60;
 		
-		// NOTE: I manually edited the HyperCache plugin to skip the cache if someone already clicked on a mood. This is so it doesn't
-		// get a cached copy with older mood data.
-		// if (substr($n, 0, 9) == 'moodring_' || substr($n, 0, 14) == 'wordpressuser_' ...
-		
-		// FIX ME -- UNDELETE THIS SO I CAN LOCK DOWN COMMENTS
-	    // setcookie("moodthingy_{$postid}", $vote,  time()+$cookie_last, COOKIEPATH, COOKIE_DOMAIN);		
+	    setcookie("moodthingy_{$postid}", $vote,  time()+$cookie_last, COOKIEPATH, COOKIE_DOMAIN);		
 	}
 }
 
@@ -226,28 +218,6 @@ function lydl_ajax_populate() {
 	echo $response;
 	exit;
 }
-
-/*
-function lydl_ajax_checkip() {
-	global $wpdb;
-	$table_name = $wpdb->prefix.'lydl_ipaddresses';
-	$postid = $_POST['postID'];
-
-	$nonce = $_POST['token'];
-	// is this a valid request?
-	if (! wp_verify_nonce($nonce, 'lydl-moodthingy') ) die("Oops!");
-
-	$ip = $_SERVER['REMOTE_ADDR'];
-	$obj = $wpdb->get_results("SELECT * FROM " . $table_name . " WHERE ipaddress='" . $ip . "' AND post_ID=" . $postid);
-	$ipexists = (sizeof($obj) > 0) ? true : false;
-	
-	// generate the response
-	$response = json_encode( array( 'success' => true, 'id' => $postid, 'ip' => $ip, 'ipexists' => $ipexists ) );
-	header( "Content-Type: application/json" );
-	echo $response;
-	exit;
-}
-*/
 
 function lydl_ajax_submit() {
 	$nonce = $_POST['token'];
@@ -331,6 +301,5 @@ add_action('wp_head', 'lydl_js_header' );
 add_action('wp_ajax_cast_vote', 'lydl_ajax_submit');
 add_action('wp_ajax_nopriv_cast_vote', 'lydl_ajax_submit');
 add_action('wp_ajax_check_ip', 'lydl_ajax_checkip');
-// add_action('wp_ajax_nopriv_check_ip', 'lydl_ajax_checkip');
 add_action('wp_ajax_populate_post', 'lydl_ajax_populate');
 add_action('wp_ajax_nopriv_populate_post', 'lydl_ajax_populate');

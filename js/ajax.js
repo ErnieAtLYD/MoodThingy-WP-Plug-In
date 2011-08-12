@@ -205,7 +205,7 @@
 				results_div_id : results_div
 			},
 			function( response ) {
-				console.log ( response );
+				// console.log ( response );
 				// alert("end here?");
 				after_vote( response );
 				
@@ -223,8 +223,8 @@
 				}, function(response) {
 				    // console.log(response.status);
 				    // console.log(response.data);
-				    //console.log('i would save the cookie here.');
-				    jQuery.cookie('moodthingy_' + MoodThingyAjax.id, vote_field);
+				    jQuery.cookie('moodthingy_' + MoodThingyAjax.id, vote_field, { expires : 10, path: '/' });
+				    //console.log('cookie of moodthingy_' + MoodThingyAjax.id, jQuery.cookie('moodthingy_' + MoodThingyAjax.id));
 				});				
 						
 			}

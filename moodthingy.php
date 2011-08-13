@@ -181,9 +181,9 @@ function lydl_store_results($vote, $postid) {
 		} else {		
 			$result2 = $wpdb->query("INSERT INTO ".$table_name2." (post_ID, votes, emotion, day) VALUES ('".$postid."', 1, ".$vote.", CURDATE())");
 		}	
-		$cookie_last = $cookie_duration * 24 * 60 * 60;
-		
-	    setcookie("moodthingy_{$postid}", $vote,  time()+$cookie_last, COOKIEPATH, COOKIE_DOMAIN);		
+		//$cookie_last = $cookie_duration * 24 * 60 * 60;		
+		//setcookie("moodthingy_{$postid}", $vote,  time()+$cookie_last, COOKIEPATH, COOKIE_DOMAIN);
+
 	}
 }
 

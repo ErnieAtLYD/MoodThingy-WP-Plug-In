@@ -42,7 +42,7 @@ function moodthingy_settings_page() {
 			jQuery('#apiverifyresult').html('<span style="color:red;">Your API key and/or website ID don\'t match our records. Your widget will not appear until it does.</span>');
 		}
 	
-		function verify() {
+		function verify( submit_form_afterward ) {
 			// http://stackoverflow.com/questions/1388018/jquery-attaching-an-event-to-multiple-elements-at-one-go
 			var jApikey = jQuery("#apikey");
 			var jApiname = jQuery("#apiname");
@@ -65,6 +65,9 @@ function moodthingy_settings_page() {
 						jQuery('#apiverifyresult').html('<span style="color:red;">Your API key and/or website ID don\'t match our records. Your widget will not appear until it does.</span>');
 						jQuery('#validkey').val('');
 					}
+					
+					if (submit_form_afterward) jQuery('form#options').submit();
+					
 				}
 			});
 		}
@@ -72,8 +75,8 @@ function moodthingy_settings_page() {
 		var jApikey = jQuery("#apikey");
 		var jApiname = jQuery("#apiname");
 		var jObj = jApikey.add(jApiname);
-			
-		jQuery('#options').submit( function(){ verify(); } );
+					
+		jQuery('form#options p.submit input.button-primary').click( function(){ verify(true); } );
 		jObj.blur( function(){ verify(); } );
 		
 	});	
@@ -127,7 +130,7 @@ function moodthingy_settings_page() {
 
 
 		<p class="submit">
-		<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save Changes') ?>" />
+		<input type="button" name="Submit" class="button-primary" value="<?php esc_attr_e('Save Changes') ?>" />
 		</p>
 	</form>
 	

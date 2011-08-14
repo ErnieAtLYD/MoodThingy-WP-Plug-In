@@ -24,6 +24,10 @@
 #moodthingy-widget ul li .cell span.count { position: absolute; visibility: hidden; }
 .clearfix { clear:both; }
 
+#moodthingy-widget.small ul li .cell span.m { font-size: 10px; }
+#moodthingy-widget.small ul li .cell span.percent { font-size: 26px; }
+#moodthingy-widget.small ul li .cell .vftthx { font-size: 8px; }
+
 /* #moodthingy-widget ul li .cell .vft { font-size:11px; position:absolute; bottom:5px; left:50%; margin-left:-25px; width:50px; line-height:1em; zoom:1; } */
 #moodthingy-widget ul li .cell .vftthx, #moodthingy-widget ul li .cell .vft.vftchoose { font-size:11px; float:left; width:100%; }
 

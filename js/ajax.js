@@ -122,6 +122,11 @@
 		})();
 		
 		if (typeof( MoodThingyAjax ) != 'undefined' &&  (typeof( MoodThingyAjax.ajaxurl ) != undefined) ) {
+		
+			if ( detect_width() < 510 ) {
+				jQuery("#moodthingy-widget").addClass('small');
+			}
+		
 			jQuery.post(
 				MoodThingyAjax.ajaxurl, {
 					action : 'populate_post',
@@ -147,6 +152,12 @@
 		);
 		*/
 	});
+	
+	function detect_width () {
+		var widget_width = jQuery("#moodthingy-widget").width();
+	
+		return widget_width;
+	}
 	
 	function after_populate( obj ) {
 		// console.log(obj); We'll use calculate_percentages to remove the loading screen

@@ -3,7 +3,7 @@
 Plugin Name: MoodThingy
 Plugin URI: N/A
 Description: Adds a list of emotions to ask how a person is feeling to be used as an instant emotional feedback loop.
-Version: 0.5 BETA
+Version: 0.5.1 BETA
 Author: Ernie Hsiung
 E-Mail: ernie@moodthingy.com
 Author URI: http://www.moodthingy.com

@@ -15,7 +15,7 @@ A Website ID and API Key are required to activate this widget. You can sign up f
 
 == Installation ==
 
-1. Download and unzip the plugin file. It will be saved to your machine as "moodthingy.zip".
+1. Download and unzip the plugin file.
 2. Upload the "moodthingy" folder into your /wp-content/plugins/ directory.
 3. Go to the Plugins section of your WordPress admin and activate the MoodThingy plugin.
 4. Go to the [MoodThingy.com](http://www.moodthingy.com/) website and create a new account, or log into your account if you already have one.

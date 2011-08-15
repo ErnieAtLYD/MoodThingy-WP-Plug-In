@@ -19,7 +19,6 @@ global $moodthingy_server;
 
 $lydl_db_version = "0.6";
 $moodthingy_server = "http://www.moodthingy.com";
-$moodthingy_server = "http://moodthingy.local:8888";
 $moods = array(1 => "Fascinated", 2 => "Amused", 3 => "Sad", 4 => "Angry", 5 => "Bored", 6 => "Excited");
 $cookie_duration = 14;
 

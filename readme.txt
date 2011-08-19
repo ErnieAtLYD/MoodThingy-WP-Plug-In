@@ -1,4 +1,4 @@
-=== MoodThingy ===
+=== MoodThingy Mood Rating Widget ===
 Tags: widget, plugin, stats, statistics, ratings, rating, poll, voting, mood, emotion, feeling, feedback, comments
 Contributors: moodthingy, ernieatlyd, mikeleeorg
 Tested up to: 3.2.1

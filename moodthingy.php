@@ -2,7 +2,7 @@
 /*
 Plugin Name: MoodThingy
 Plugin URI: http://www.moodthingy.com/
-Description: Adds a list of emotions to ask how a person is feeling to be used as an instant emotional feedback loop.
+Description: Adds a one-click real-time mood rating widget to all of your posts.
 Version: 0.5.2 BETA
 Author: Ernie Hsiung
 E-Mail: ernie@moodthingy.com

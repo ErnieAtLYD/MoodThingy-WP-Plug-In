@@ -3,7 +3,7 @@ Tags: widget, plugin, stats, statistics, ratings, rating, poll, voting, mood, em
 Contributors: moodthingy, ernieatlyd, mikeleeorg
 Tested up to: 3.2.1
 Requires at least: 2.9
-Stable Tag: 0.5
+Stable Tag: 0.5.2 BETA
 
 Adds a one-click real-time mood rating widget to all of your posts.
 
@@ -12,6 +12,8 @@ Adds a one-click real-time mood rating widget to all of your posts.
 MoodThingy is a widget that any blogger can use to track the emotional feedback of an individual blog post or article. The widget can be configured to automatically appear below all of your posts, or manually placed anywhere within a post using a handy WordPress tag. A dashboard of MoodThingy stats is also offered so you can see which articles excite, amuse, or bore your readers, sorted by mood or number of votes in the past day, week, or month.
 
 A Website ID and API Key are required to activate this widget. You can sign up for those by creating an account at [MoodThingy.com](http://www.moodthingy.com/).
+
+You can also find the source code of the plugin on [GitHub](https://github.com/ErnieAtLYD/MoodThingy-WP-Plug-In).
 
 == Installation ==
 

@@ -37,9 +37,9 @@ function moodthingy_settings_page() {
 	jQuery(document).ready(function(){
 	
 		if ( jQuery('#validkey').val()=='1' ) {
-			jQuery('#apiverifyresult').html('Your API key and website ID have been verified. Your widget will appear on your blog posts!');
+			jQuery('#apiverifyresult').html('Your Website ID and API key have been verified. Your widget will now appear on your blog posts!');
 		} else {
-			jQuery('#apiverifyresult').html('<span style="color:red;">Your API key and/or website ID don\'t match our records. Your widget will not appear until it does.</span>');
+			jQuery('#apiverifyresult').html('<span style="color:red;">Your Website ID and/or API key don\'t match our records. Your widget will not appear until it does. Try copying & pasting them again.</span>');
 		}
 	
 		function verify( submit_form_afterward ) {
@@ -59,10 +59,10 @@ function moodthingy_settings_page() {
 				type: 'get',
 				success: function(j) {
 					if (j.stat == 'ok') {
-						jQuery('#apiverifyresult').html('Your API key and website ID have been verified. Your widget will appear on your blog posts, but don\'t forget to save your changes!');
+						jQuery('#apiverifyresult').html('Your Website ID and API key have been verified. Your widget will appear on your blog posts, but don\'t forget to save your changes!');
 						jQuery('#validkey').val('1');
 					} else {
-						jQuery('#apiverifyresult').html('<span style="color:red;">Your API key and/or website ID don\'t match our records. Your widget will not appear until it does.</span>');
+						jQuery('#apiverifyresult').html('<span style="color:red;">Your Website ID and/or API key don\'t match our records. Your widget will not appear until it does. Try copying & pasting them again.</span>');
 						jQuery('#validkey').val('');
 					}
 					
@@ -107,14 +107,14 @@ function moodthingy_settings_page() {
 	<form id="options" method="post">
 
 	<h3>MoodThingy.com Integration</h3>
-	<p>If you have an account on MoodThingy.com, register your blog on the website to see stats and other useful information!</p>
+	<p>If you have an account on <a href="http://www.moodthingy.com/" target="_blank">MoodThingy.com</a>, register your blog on the website to see stats and other useful information!</p>
 		<p>
-		<label for="apiname">Your website ID from moodthingy.com</label><br>
+		<label for="apiname">Your Website ID from moodthingy.com</label><br>
 		<input id="apiname" name="apiname" size="13" type="input" value="<?php echo $options['apiname']; ?>">
 		</p>
 		
 		<p>
-		<label for="apikey">API Key from moodthingy.com</label><br>
+		<label for="apikey">Your API Key from moodthingy.com</label><br>
 		<input id="apikey" name="apikey" type="input" value="<?php echo $options['apikey']; ?>">
 		</p>
 		

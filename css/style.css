@@ -1,5 +1,5 @@
 #moodthingy-widget { font-family: "Helvetica", "Arial", "sans-serif" }
-#moodthingy-widget { width:100%; line-height:1em; }
+#moodthingy-widget { width:100%; line-height:1em; clear:both; }
 
 #moodthingy-widget #total, #moodthingy-widget #voted { display: none; }
 #moodthingy-widget.voted li { cursor: default; }

@@ -3,7 +3,7 @@
 Plugin Name: MoodThingy
 Plugin URI: http://www.moodthingy.com/
 Description: Adds a one-click real-time mood rating widget to all of your posts.
-Version: 0.5.2 BETA
+Version: 0.5.3 BETA
 Author: Ernie Hsiung
 E-Mail: ernie@moodthingy.com
 Author URI: http://www.moodthingy.com/

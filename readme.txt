@@ -3,7 +3,7 @@ Tags: widget, plugin, stats, statistics, ratings, rating, poll, voting, mood, em
 Contributors: moodthingy, ernieatlyd, mikeleeorg
 Tested up to: 3.2.1
 Requires at least: 2.9
-Stable Tag: 0.5.2 BETA
+Stable Tag: 0.5.3 BETA
 
 Adds a one-click real-time mood rating widget to all of your posts.
 
@@ -29,3 +29,7 @@ You can also find the source code of the plugin on [GitHub](https://github.com/E
 == Frequently Asked Questions ==
 
 If you have any questions, you can visit our [UserVoice forum](http://moodthingy.uservoice.com/) or email us at support@moodthingy.com.
+
+== Changelog ==
+= 0.5.3 =
+* Bug Fix: Added defensibility into CSS to fix layout bugs caused by declaration collisions.

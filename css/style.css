@@ -8,16 +8,16 @@
 #moodthingy-widget #hdr { background-color: #999999; border-radius: 5px 5px 0 0; -moz-border-radius: 5px 5px 0 0; -webkit-border-radius: 5px 5px 0 0; color: #FFFFFF; font-size: 12px; min-height: 26px; }
 #moodthingy-widget #hdr #t { float: right; padding-right: 6px; }
 #moodthingy-widget #hdr #t span { background: url("mt.png") no-repeat scroll 0 0 transparent; display: block; float: left; margin-right: 10px; margin-top: 2px; min-height: 24px; text-indent: -99999px; width: 102px; }
-#moodthingy-widget #hdr #s { /* padding-left: 6px; padding-top: 6px; */ display:block; margin-left:6px; padding-top:6px; }
+#moodthingy-widget #hdr #s { /* padding-left: 6px; padding-top: 6px; */ display:block; margin-left:6px; padding-top:6px; background: transparent; width: auto; color: inherit; }
 #moodthingy-widget #bd { position:relative; clear:both; margin-top:0; border:1px solid #ccc; background-color:#EFEFEF; border-radius: 0 0 5px 5px; }
 #moodthingy-widget #bd #loading { top:1px; background:url(progressbar.gif) center center no-repeat #fff; border: 0px solid #000000; height: 98px; opacity: 0.9; position: absolute; text-align: center; width: 100%; z-index: 1; }
 
 #moodthingy-widget ul { width:100%; padding:0;margin: 0 auto; text-align: center; }
-#moodthingy-widget ul li { width:15.5%; background-image: none; cursor: pointer; display: inline-block; padding: 0; text-align: left; zoom: 1; *display: inline; }
+#moodthingy-widget ul li { width:15.5%; background-image: none; cursor: pointer; display: inline-block; padding: 0; text-align: left; zoom: 1; *display: inline; margin: 0; }
 
 #moodthingy-widget ul li .cell { margin: 5px 2px; height:75px; vertical-align:middle; -moz-box-orient: vertical; text-align:center; background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #DDDDDD; border-radius: 5px 5px 5px 5px; position:relative; }
 
-#moodthingy-widget ul li .cell div { height: 100%; width:100%; /* line-height: 1.25em; */ }
+#moodthingy-widget ul li .cell div { height: 100%; width:100%; margin: 0; /* line-height: 1.25em; */ }
 #moodthingy-widget ul li .cell span { display:block; }
 #moodthingy-widget ul li .cell span.m { font-size: 12px; line-height: 14px; padding-top: 11px; text-transform: uppercase; }
 #moodthingy-widget ul li .cell span.p { font-size:24px; line-height:28px; }
@@ -60,3 +60,6 @@
 .percent { font-size:32px; margin-top:0px; line-height:1em; }
 /* .percent { font-size:32px; position: absolute; top:48%; width:100%; } */
 .p-0 { color: #CCCCCC; }
+
+#moodthingy-widget p { margin: 0; padding:0; }
+#moodthingy-widget br { display: none; }

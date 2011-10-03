@@ -182,7 +182,7 @@
 			jQuery("#moodthingy-widget ul li").click(function(){
 				var id = jQuery(this).attr("id").substr(5);
 				// console.log(id);
-				jQuery("#moodthingy-widget #body #loading").css("display","block");
+				jQuery("#moodthingy-widget #bd #loading").css("display","block");
 				myplugin_cast_vote(id,'voteresults');
 			});
 			

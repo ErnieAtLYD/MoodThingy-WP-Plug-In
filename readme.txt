@@ -13,6 +13,8 @@ MoodThingy is a widget that any blogger can use to track the emotional feedback 
 
 A WordPress Widget is also included in the plug-in as a way to show readers the most popular blog posts in the past day, week, month or year. The PRO version allows publishers to customize the moods and colors of the plug-in for their blog.
 
+MoodThingy was built as a WordPress plug-in built by Ernie Hsiung, with help by Mike Lee in 2012. Previously, the plug-in offered a PRO version for a premium prices. Eventually, both developers ended up being unable to continue the project and a decision was made to discountinue the PRO version (offered on CodeCanyon) and fold the code to open source in July, 2014.
+
 == Installation ==
 
 1. Download and unzip the plugin file.
@@ -20,13 +22,16 @@ A WordPress Widget is also included in the plug-in as a way to show readers the 
 3. Go to the Plugins section of your WordPress admin and activate the MoodThingy plugin.
 4. And you're done!
 
+== Screenshots ==
+
+1. Screenshot 1
+2. Screenshot 2
+3. Screenshot 3
+4. Screenshot 4
+
 == Frequently Asked Questions ==
 
 If you have any issues with the app, you can visit the [GitHub repo](https://github.com/ErnieAtLYD/MoodThingy-WP-Plug-In/). Note that the code has been uploaded with the hope that if there is a community that is a fan of this, it can still be supported by the community.
-
-== History ==
-
-MoodThingy was built as a WordPress plug-in built by Ernie Hsiung, with help by Mike Lee in 2012. Previously, the plug-in offered a PRO version for a premium prices. Eventually, both developers ended up being unable to continue the project and a decision was made to discountinue the PRO version (offered on CodeCanyon) and fold the code to open source in July, 2014.
 
 == Screenshots ==
 

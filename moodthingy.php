@@ -1,16 +1,13 @@
 <?php 
 /*
-Plugin Name: MoodThingy PRO
-Plugin URI: http://www.moodthingy.com/
+Plugin Name: MoodThingy
+Plugin URI: https://github.com/ErnieAtLYD/MoodThingy-WP-Plug-In
 Description: Adds a one-click real-time mood rating widget to all of your posts.
-Version: 1.14
+Version: 2.0
 Author: Ernie Hsiung
-E-Mail: ernie@moodthingy.com
-Author URI: http://www.moodthingy.com/
+E-Mail: e@erniehsiung.com
+Author URI: https://github.com/ErnieAtLYD/MoodThingy-WP-Plug-In
 */
-
-// Don't forget to:
-// LOCK the comments
 
 // define('MOODTHINGY_PLUGIN_DIR', 'http://localhost:8888/wordpress/wp-content/plugins/moodthingy-pro-plugin');
 define('MOODTHINGY_PLUGIN_DIR', plugins_url(basename(dirname(__FILE__))));

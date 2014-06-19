@@ -3,9 +3,9 @@ Tags: widget, plugin, stats, statistics, ratings, rating, poll, voting, mood, em
 Contributors: moodthingy, ernieatlyd, mikeleeorg
 Tested up to: 3.5
 Requires at least: 2.9
-Stable Tag: 1.13
+Stable Tag: 2.0
 
-Adds a one-click real-time mood rating widget to all of your posts.  The PRO version includes the ability to customize your moods and color choices.
+Adds a one-click real-time mood rating widget to all of your posts.  What was previously the PRO version is now open source. This version includes the ability to customize your moods and color choices, previously unavailable in the freely available version of MoodThingy.
 
 == Description ==
 
@@ -22,7 +22,11 @@ A WordPress Widget is also included in the plug-in as a way to show readers the 
 
 == Frequently Asked Questions ==
 
-If you have any questions, you can visit our [UserVoice forum](http://moodthingy.uservoice.com/) or email us at support@moodthingy.com.
+If you have any issues with the app, you can visit the [GitHub repo](https://github.com/ErnieAtLYD/MoodThingy-WP-Plug-In/). Note that the code has been uploaded with the hope that if there is a community that is a fan of this, it can still be supported by the community.
+
+== History ==
+
+MoodThingy was built as a WordPress plug-in built by Ernie Hsiung, with help by Mike Lee in 2012. Previously, the plug-in offered a PRO version for a premium prices. Eventually, both developers ended up being unable to continue the project and a decision was made to discountinue the PRO version (offered on CodeCanyon) and fold the code to open source in July, 2014.
 
 == Screenshots ==
 
@@ -30,6 +34,9 @@ If you have any questions, you can visit our [UserVoice forum](http://moodthingy
 2. MoodThingy Stats Dashboard 
 
 == Changelog ==
+
+= 2.0 =
+* July 19, 2014: The formerly PRO version of MoodThingy is now available. The code base is available as open source at https://github.com/ErnieAtLYD/MoodThingy-WP-Plug-In, and pull requests are welcome.
 
 = 1.14 =
 * Now added the ability to share through Facebook. In the UI, the option to allow Twitter has been replaced with a general social media sharing option that will let you share via Twitter and Facebook.

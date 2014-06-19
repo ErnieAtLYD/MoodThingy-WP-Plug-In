@@ -42,18 +42,39 @@
 
 	jQuery(document).ready(function() {
 
-		easyXDM.DomHelper.requiresJSON("json2.js");
+
+		jQuery('a.socialmedia').click(function(event) {
+		var width  = 575,
+		    height = 400,
+		    left   = (jQuery(window).width()  - width)  / 2,
+		    top    = (jQuery(window).height() - height) / 2,
+		    url    = this.href,
+		    opts   = 'status=1' +
+		             ',width='  + width  +
+		             ',height=' + height +
+		             ',top='    + top    +
+		             ',left='   + left;
+		
+		window.open(url, 'socialmediashare', opts);
+		
+		return false;
+		});
+
 
 		// FIX ME: Don't hardcode moodthingy.local
 		// FIX ME: xhr should not be a global variable, but where do I spec this? 
-		if (typeof( MoodThingyAjax ) != 'undefined' &&  (typeof( MoodThingyAjax.ajaxurl ) != undefined) ) {		
-		xhr = new easyXDM.Rpc({
-		    remote: MoodThingyAjax.cors + "/cors/"
-		}, {
-		    remote: {
-		        request: {} // request is exposed by /cors/
-		    }
-		});
+		if (typeof( MoodThingyAjax ) != 'undefined' && 
+		   (MoodThingyAjax.centralized == '1' ) && 
+		   (typeof( MoodThingyAjax.ajaxurl ) != undefined) ) {		
+
+			easyXDM.DomHelper.requiresJSON("json2.js");
+			xhr = new easyXDM.Rpc({
+			    remote: MoodThingyAjax.cors + "/cors/"
+			}, {
+			    remote: {
+			        request: {} // request is exposed by /cors/
+			    }
+			});
 		}
  
 		/**
@@ -176,7 +197,7 @@
 		if (jQuery("#moodthingy-widget #voted").html()) {
 			jQuery("#moodthingy-widget").addClass("voted");
 			jQuery("#mdr-e" + jQuery("#moodthingy-widget #voted").html() + " .cell div")
-				.append(jQuery("<span class='vftthx'>THANKS!</span>"));
+				.append(jQuery("<span class='vftthx'>" + MoodThingyAjax.thxstring + "</span>"));
 
 		} else {
 			jQuery("#moodthingy-widget ul li").click(function(){
@@ -188,7 +209,7 @@
 			
 			jQuery("#moodthingy-widget ul li").hover(
 				function() {
-					jQuery(this).find(".cell div").append(jQuery("<span class='vftthx'>VOTE FOR THIS</span>"));
+					jQuery(this).find(".cell div").append(jQuery("<span class='vftthx'>" + MoodThingyAjax.votestring + "</span>"));
 				},
 				function() {
 					jQuery(this).find("span.vftthx").remove();
@@ -196,7 +217,6 @@
 			);
 		}	
 		
-				
 	}
 	
 	function myplugin_cast_vote( vote_field, results_div ) {
@@ -220,24 +240,50 @@
 				// alert("end here?");
 				after_vote( response );
 				
-				xhr.request({
-				    url: MoodThingyAjax.cors + "/api/articles/vote",
-				    method: "POST",
-				    data: { 
-				    		'w':  MoodThingyAjax.siteid, 
-				    		'a':  MoodThingyAjax.id, 
-				    		'v':  vote_field, 
-				    		'at': MoodThingyAjax.title, 
-				    		'au': MoodThingyAjax.url,
-				    		'api':MoodThingyAjax.api  
-				    	  }
-				}, function(response) {
-				    // console.log(response.status);
-				    // console.log(response.data);
+				
+				if ( MoodThingyAjax.centralized == '1' ) {
+					xhr.request({
+					    url: MoodThingyAjax.cors + "/api/articles/vote",
+					    method: "POST",
+					    data: { 
+					    		'w':  MoodThingyAjax.siteid, 
+					    		'a':  MoodThingyAjax.id, 
+					    		'v':  vote_field, 
+					    		'at': MoodThingyAjax.title, 
+					    		'au': MoodThingyAjax.url,
+					    		'api':MoodThingyAjax.api  
+					    	  }
+					}, function(response) {
+					    // console.log(response.status);
+					    // console.log(response.data);
+					    jQuery.cookie('moodthingy_' + MoodThingyAjax.id, vote_field, { expires : 10, path: '/' });
+					    //console.log('cookie of moodthingy_' + MoodThingyAjax.id, jQuery.cookie('moodthingy_' + MoodThingyAjax.id));
+					});
+
+				} else {
+					// FIXME: Delete to re-install the cookie
 				    jQuery.cookie('moodthingy_' + MoodThingyAjax.id, vote_field, { expires : 10, path: '/' });
-				    //console.log('cookie of moodthingy_' + MoodThingyAjax.id, jQuery.cookie('moodthingy_' + MoodThingyAjax.id));
-				});				
-						
+				}
+
+				if ( MoodThingyAjax.tweet == 'on' ) {
+					var strEmo = jQuery("#moodthingy-widget #mdr-e" + vote_field + " .m").html();
+					var message = "I just voted \"" + strEmo + "\" in \"" + MoodThingyAjax.title + "\"";
+					var tweetButton = jQuery('#tweet-button').attr('href').replace(/text=[^&]+/, "text=" + encodeURIComponent(message) );
+					var fbButton = jQuery('#fb-button').attr('href').replace(/p\[summary\]=[^&]+/, "p[summary]=" + encodeURIComponent(message) );
+					
+					jQuery('#tweet-button').attr('href', tweetButton);
+					jQuery('#fb-button').attr('href', fbButton);
+									
+					jQuery("#moodthingy-widget #lyr1").css("visibility","visible");
+					jQuery("#moodthingy-widget #lyr2").css("visibility","visible");
+					
+					jQuery("#moodthingy-widget #clr").click(function(){
+						jQuery("#moodthingy-widget #lyr1").css("visibility","hidden");
+						jQuery("#moodthingy-widget #lyr2").css("visibility","hidden");
+						return false;
+					});
+			
+				}		
 			}
 		);
 	} // end of JavaScript function myplugin_cast_vote
@@ -246,9 +292,6 @@
 	function after_vote( obj ) {
 
 		var oldvoteval = parseInt(jQuery("#moodthingy-widget #mdr-e"+obj.vote+" .count").html());
-		//console.log(obj.vote);
-		//console.log(jQuery("#moodthingy-widget #mdr-e"+obj.vote+" .count").html());
-		//console.log(oldvoteval);
 		jQuery("#moodthingy-widget #mdr-e"+obj.vote+" .count").html( oldvoteval + 1 );
 
 		var oldtotal = parseInt(jQuery("#moodthingy-widget #total").html());
@@ -260,7 +303,7 @@
 		jQuery("#mdr-e" + jQuery("#moodthingy-widget #voted").html() + " .cell div")
 			.find("span.vftthx").remove();
 		jQuery("#mdr-e" + jQuery("#moodthingy-widget #voted").html() + " .cell div")
-			.append(jQuery("<span class='vftthx'>THANKS!</span>"));
+			.append(jQuery("<span class='vftthx'>" + MoodThingyAjax.thxstring + "</span>"));
 
 		calculate_percentages();
 		// We'll disable jQuery animations for now, since different blogs have problems with the "effect" method.
@@ -271,7 +314,7 @@
 	
 		var total = parseInt(jQuery("#moodthingy-widget #total").html());
 		
-		jQuery("#moodthingy-widget #sparkbardiv").css("display", (total) ? "block" : "none");
+		jQuery("#moodthingy-widget #sparkbardiv").css("display", (total && MoodThingyAjax.sparkline == 'on') ? "block" : "none");
 		if (total) {
 			jQuery("#moodthingy-widget .sparkbar").html("");
 		}
@@ -280,24 +323,26 @@
 			var moodVotes = parseInt(jQuery("#moodthingy-widget #mdr-e"+i+" .count").html());
 			var percentage = moodVotes/total;
 			jQuery("#moodthingy-widget #mdr-e"+i+" .percent").html(
-				(percentage) ? parseInt(percentage*100) + '%'
+				(percentage) ? Math.round(percentage*100) + '%'
 						: jQuery('<span class="p-0">0%</span>')
 			);
 			
 			/* Now update the spark bar, if applicable */
-			if (moodVotes) {
+			if (moodVotes && MoodThingyAjax.sparkline == 'on') {
 				jQuery("#moodthingy-widget .sparkbar")
 					.append('<div class="spark' + i + '" style="width: ' + percentage*100 + '%"></div>');
 			}
-		}	
+		}		
 
-		jQuery("#moodthingy-widget #bd ul li").sortElements(function(a, b){
-		    return parseInt(jQuery(a).find(".count").text()) < parseInt(jQuery(b).find(".count").text()) ? 1 : -1;
-		});	
-
-		jQuery("#moodthingy-widget .sparkbar div").sortElements(function(a, b){
-		    return parseInt(jQuery(a).css("width")) < parseInt(jQuery(b).css("width")) ? 1 : -1;
-		});	
+		if ( MoodThingyAjax.sortmoods == 'on') {
+			jQuery("#moodthingy-widget #bd ul li").sortElements(function(a, b){
+			    return parseInt(jQuery(a).find(".count").text()) < parseInt(jQuery(b).find(".count").text()) ? 1 : -1;
+			});	
+	
+			jQuery("#moodthingy-widget .sparkbar div").sortElements(function(a, b){
+			    return parseInt(jQuery(a).css("width")) < parseInt(jQuery(b).css("width")) ? 1 : -1;
+			});	
+		}
 		
 		jQuery("#moodthingy-widget #bd #loading").css("display","none");
 	}

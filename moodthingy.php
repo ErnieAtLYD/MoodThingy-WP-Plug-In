@@ -1,6 +1,6 @@
 <?php 
 /*
-Plugin Name: MoodThingy
+Plugin Name: MoodThingy Mood Rating Widget
 Plugin URI: https://github.com/ErnieAtLYD/MoodThingy-WP-Plug-In
 Description: Adds a one-click real-time mood rating widget to all of your posts.
 Version: 2.0

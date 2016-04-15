@@ -363,7 +363,7 @@ function lydl_ajax_populate() {
 	// is this a valid request?
 	if (! wp_verify_nonce($nonce, 'lydl-moodthingy') ) die("Oops!");
 	
-	$obj = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}lydl_posts WHERE ID=" . $postid, ARRAY_A);
+	$obj = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$wpdb->prefix}lydl_posts WHERE ID=%s", $postid), ARRAY_A);
 	$sum = $obj["emotion_1"]+$obj["emotion_2"]+$obj["emotion_3"]+$obj["emotion_4"]+$obj["emotion_5"]+$obj["emotion_6"];
 	
 	$voted = '';
